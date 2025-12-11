@@ -290,24 +290,25 @@ body {
 <!--   ZONES 1–46 : Correspondance exacte -->
 <!-- ========================== -->
 
-<div class="zone zone26" data-id="carte26"></div>
-<div class="zone zone27" data-id="carte27"></div>
-<div class="zone zone28" data-id="carte28"></div>
-<div class="zone zone29" data-id="carte29"></div>
-<div class="zone zone30" data-id="carte30"></div>
-<div class="zone zone31" data-id="carte31"></div>
-<div class="zone zone32" data-id="carte32"></div>
-<div class="zone zone33" data-id="carte33"></div>
-<div class="zone zone34" data-id="carte34"></div>
-<div class="zone zone35" data-id="carte35"></div>
-<div class="zone zone36" data-id="carte36"></div>
-<div class="zone zone37" data-id="carte37"></div>
-<div class="zone zone38" data-id="carte38"></div>
-<div class="zone zone39" data-id="carte39"></div>
-<div class="zone zone40" data-id="carte40"></div>
-<div class="zone zone41" data-id="carte41"></div>
-<div class="zone zone42" data-id="carte42"></div>
-<div class="zone zone43" data-id="carte43"></div>
+<div class="zone zone26" data-accept="carte26,carte36,carte31"></div>
+<div class="zone zone27" data-accept="carte27,carte30,carte35"></div>
+<div class="zone zone28" data-accept="carte28,carte32"></div>
+<div class="zone zone29" data-accept="carte29,carte38,carte33"></div>
+<div class="zone zone30" data-accept="carte30,carte27,carte35"></div>
+<div class="zone zone31" data-accept="carte31,carte26,carte36"></div>
+<div class="zone zone32" data-accept="carte32,carte28"></div>
+<div class="zone zone33" data-accept="carte38,carte29,carte33"></div>
+<div class="zone zone34" data-accept="carte34"></div>
+<div class="zone zone35" data-accept="carte35,carte27,carte30"></div>
+<div class="zone zone36" data-accept="carte36,carte26,carte31"></div>
+<div class="zone zone37" data-accept="carte37"></div>
+<div class="zone zone38" data-accept="carte38,carte29,carte33"></div>
+<div class="zone zone39" data-accept="carte39"></div>
+<div class="zone zone40" data-accept="carte40"></div>
+<div class="zone zone41" data-accept="carte41"></div>
+<div class="zone zone43" data-accept="carte43"></div>
+<div class="zone zone42" data-accept="carte42"></div>
+
 <!--<div class="zone zone44" data-id="carte44"></div>
 <div class="zone zone45" data-id="carte45"></div>
 <div class="zone zone46" data-id="carte46"></div>-->
@@ -365,7 +366,9 @@ function drop(e) {
   e.preventDefault();
   const zoneId = this.dataset.id;
 
-  if (draggedCarte.id === zoneId) {
+const accepted = this.dataset.accept.split(",");
+if (accepted.includes(draggedCarte.id)) {
+
     this.appendChild(draggedCarte);
     draggedCarte.style.position = "absolute";
     draggedCarte.style.top = "0px";
@@ -581,10 +584,3 @@ window.addEventListener("resize", checkWindowSize);
 
 </body>
 </html>
-
-
-
-
-
-
-
